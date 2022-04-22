@@ -1,53 +1,51 @@
-#include <stdio.h>
+#include<stdio.h>
 int main(void)
 {
-    int start_day, days, weekday;
+//identify the variables.
+    int day,start_day,DaysInMonth,dt=1;
 
-    printf("Enter number of days in month: ");
-    scanf("%d", &days);
-
-
-    printf("Enter the starting day of the week (1=Sun, 7=Sat): ");
-    scanf("%d", &start_day);
-    printf("Sun Mon Tue Wed Thu Fri Sat\n");
-
-    for (weekday = 0; weekday < start_day; weekday++){
-        printf(" ");
-    }
-    for (int daycount = 1; daycount <= days; daycount++){
-        if (weekday > 6){
-            printf("\n");
-            weekday = 1;
-        }else{
-            weekday++;
+    do
+    {
+//ask the user to enter number of days in month.
+        printf("Enter number of days in month: ");
+        scanf("%d", &DaysInMonth);
+        if ( DaysInMonth< 28 ||DaysInMonth  > 31)
+        {
+            printf("Invalid input! Choose between 28 and 31.\n");
         }
-        printf("%3d", daycount);
-    }
-        return 0;
-}
+    } while (DaysInMonth < 28 || DaysInMonth> 31);
 
-
-for (weekday = 1; weekday < start_day; weekday++){
-        printf("  ");
-    }
-    for (int daycount = 1; daycount <= days; daycount++){
-        if (weekday > 6){
-            weekday = 1;
-            printf("\n");
-        }else{
-            weekday++;
+    do
+    {
+//ask to user to enter the starting day of the week (1=Mon, 7=Sun).
+        printf("Enter the starting day of the week (1=Mon, 7=Sun): ");
+        scanf("%d", &start_day);
+        if (start_day < 1 || start_day > 7)
+        {
+            printf("Invalid input! Choose between 1 and 7.\n");
         }
-        printf("%3d", daycount);
+    } while (start_day < 1 || start_day > 7);
+//show the days in a week.
+    printf("\nMon \tTue \tWed \tThu \tFri \tSat \tSun \n");
+    printf(" _________________________________________________\n\n");
 
- for (start_day = 1; start_day <= days; start_day++){
-            printf("%5d",day);
-
-        if(++weekDay>6){
-            printf("\n");
-            weekDay=0;
-        }
-        start_day=weekday;
+    for(day=start_day;day>1;day--)
+    {
+        printf("\t");
     }
-        return 0;
+
+    while(dt<=DaysInMonth)
+    {
+        if(start_day!=0)
+        {
+         if(start_day%7==0)
+         printf("\n");
+        }
+
+    printf("%d\t",dt);
+        dt++;
+        start_day++;
+    }
+    return 0;
 }
 
