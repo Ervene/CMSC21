@@ -1,0 +1,36 @@
+#include <stdio.h>
+#define SIZE 5
+
+int main() {
+//a.
+    int arr[SIZE] = {1,2,3,4,5};
+    
+//b.
+    int *ptr;
+    
+//c.
+    ptr = &arr[0];
+    
+//d.
+    for (int i = 0; i < SIZE; i++){
+        printf("%d", *ptr+i);
+    } 
+    
+//e.
+    for (int i = 0; i < SIZE; i++){
+        printf("%d", *(arr + i));
+    } 
+   
+//f.1
+    arr[1];
+//f.2
+    *(arr + 1);
+//f.3
+    *ptr+1;
+//f.4
+    ptr[1];
+//g.
+    //ptr+2 references address 2508 and contains the value 3
+    
+    return 0;
+}

@@ -1,0 +1,9 @@
+#include <stdio.h>
+
+void fun(void){
+    printf("%s, Inside function fun\n");
+    bored();
+}
+void bored(void){
+    printf("%s, Inside function bored\n");
+}
