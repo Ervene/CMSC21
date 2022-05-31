@@ -1,0 +1,60 @@
+#include <stdio.h>
+#include <math.h>
+
+//Outer structure line
+struct line{
+    struct point{
+        float x;
+        float y;
+    }point1, point2;
+    float midpoint;
+    float slope;
+    float distance;
+};
+
+//Functions
+float solveSlope(struct line line1){
+    float slope = (line1.point2.y - line1.point1.y) / (line1.point2.x - line1.point1.x);
+    return slope;
+}
+
+void solveMidpoint(struct line line1){
+    float midX = (line1.point1.x + line1.point2.x) / 2;
+    float midY = (line1.point1.y + line1.point2.y) / 2;
+    printf("Midpoint: %f %f", midX, midY);
+}
+
+
+float solveDistance(struct line line1){
+	float x_2 = pow(line1.point1.x - line1.point2.x, 2.0);
+	float y_2 = pow(line1.point1.y - line1.point2.y, 2.0);
+	line1.distance = sqrt(x_2 + y_2);
+
+	return line1.distance;
+}
+
+void getSlopeInterceptForm(struct line line1){
+    float slope = (line1.point2.y - line1.point1.y) / (line1.point2.x - line1.point1.x);
+    float b = line1.point1.y - (slope * line1.point1.x);
+    printf("y = %fx + (%f)", slope, b);
+}
+
+int main(){
+	struct line line1;
+//Asks user to input coordinates of point 1.
+	printf("Enter x and y for point 1: \n");
+	scanf("%f %f", &line1.point1.x, &line1.point1.y);
+
+//Asks user to input coordinates of point 2.
+	printf("Enter x and y for point 2: \n");
+	scanf("%f %f", &line1.point2.x, &line1.point2.y);
+
+	printf("\nSlope: %f\n", solveSlope(line1));
+	solveMidpoint(line1);
+	printf("\nDistance between two points: %f\n", solveDistance(line1));
+	getSlopeInterceptForm(line1);
+
+	printf("\n");
+
+	return 0;
+}
