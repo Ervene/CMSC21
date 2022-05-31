@@ -24,7 +24,6 @@ void solveMidpoint(struct line line1){
     printf("Midpoint: %f %f", midX, midY);
 }
 
-
 float solveDistance(struct line line1){
 	float x_2 = pow(line1.point1.x - line1.point2.x, 2.0);
 	float y_2 = pow(line1.point1.y - line1.point2.y, 2.0);
